@@ -6,7 +6,7 @@ import android.util.Log;
 public class ReportCard {
     private String schoolName = "N J High School";
     private String className = "10th";
-    private int fullMark = 500;
+    private double fullMark = 500;
     private String mStudentName;
     private int mRollNo;
     private int mEnglishMarks;
@@ -45,7 +45,7 @@ public class ReportCard {
         this.className = className;
     }
 
-    public int getFullMark() {
+    public double getFullMark() {
         return fullMark;
     }
 
@@ -109,31 +109,31 @@ public class ReportCard {
         this.mLogicMarks = mLogicMarks;
     }
 
-    private int getTotalMarks() {
-        int totalMark;
+    private double getTotalMarks() {
+        double totalMark;
         totalMark = getmEnglishMarks() + getmMathMarks() + getmScienceMarks() + getmEconomicsMarks() + getmLogicMarks();
         return totalMark;
     }
 
     private double getPercentageMarks() {
-        double percentage = (getTotalMarks() / getFullMark()) * 100;
+
+        double percentage = ( getTotalMarks() / fullMark) * 100 ;
         Log.i("MyLog: ", "Full Mark: " + getFullMark());
         Log.i("MyLog: ", "Total Mark: " + getTotalMarks());
         Log.i("MyLog: ", "Percentage: " + percentage);
         return percentage;
 
-        //Percentage is not workign correctly ..
+        //Percentage is not working correctly ..
 
     }
 
     private String getGrade() {
         String grade = null;
-
-        if (getTotalMarks() > 400) {
+        if (getPercentageMarks() > 90) {
             grade = "A";
-        } else if (getTotalMarks() < 400 && getTotalMarks() >= 300) {
+        } else if (getPercentageMarks() < 90 && getPercentageMarks() >80) {
             grade = "B";
-        } else if (getTotalMarks() < 300) {
+        } else if (getPercentageMarks() <80) {
             grade = "C";
         }
 
@@ -171,6 +171,5 @@ public class ReportCard {
                 ", grade='" + getGrade() + '\'' +
                 '}';
     }
-
 
 }

@@ -10,7 +10,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ReportCard firstCard = new ReportCard("Pradeep Behera", 12345, 50, 50,50,50,50);
+        ReportCard firstCard = new ReportCard("Pradeep Behera", 12345, 80, 75,86,81,79);
 
         TextView textView = (TextView) findViewById(R.id.reportCardView);
         textView.setText(firstCard.showResult());
